@@ -25,7 +25,7 @@ $ssi_on_error_method = true;
 $context['page_title'] = 'Anti-spam configuration';
 $context['page_title_html_safe'] = 'Anti-spam configuration';
 
-if(!$context['user']['is_logged'] || !($context['user']['is_admin'] || $context['user']['is_mod'])){
+if(!$context['user']['is_logged'] || !in_array($user_info['groups'][0], array(1, 2))){
 	header('HTTP/1.0 401 Unauthorized');
 	fatal_error('Protected access');
 }
